@@ -1,0 +1,49 @@
+.auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.auth-tab:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.auth-tab.active {
+  color: #667eea;
+  border-bottom: 3px solid #667eea;
+  background: linear-gradient(to top, rgba(102,126,234,0.1), transparent);
+}
+
+.auth-form-container {
+  padding: 40px;
+}

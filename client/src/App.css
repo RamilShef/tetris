@@ -1,0 +1,545 @@
+/* ========== ОСНОВНЫЕ СТИЛИ ========== */
+
+/* Десктопная навигация */
+.desktop-nav {
+  background: var(--bg);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a, .logout-btn {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.3s;
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+}
+
+.nav-links a:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.logout-btn {
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Гамбургер-иконка (скрыта на десктопе) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: var(--text);
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+/* Затемнение фона */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  backdrop-filter: blur(3px);
+}
+
+/* Боковое меню */
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 250;
+  transition: left 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-menu.open {
+  left: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.menu-links {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-links a, .menu-links .logout-btn {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 12px 15px;
+  border-radius: 30px;
+  transition: all 0.3s;
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.menu-links a:hover, .menu-links .logout-btn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--text-h);
+}
+
+.menu-links .logout-btn {
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+}
+
+.menu-links .logout-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Основной контент */
+.main-content {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.page-container {
+  flex: 1;
+  background: var(--bg);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ========== ИГРОВОЙ КОНТЕЙНЕР ========== */
+.game-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.game-canvas-wrapper {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--code-bg);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.game-canvas-wrapper canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  background: #0a0a0a;
+}
+
+/* ========== ПАНЕЛЬ УПРАВЛЕНИЯ ========== */
+.game-panel {
+  flex: 0 0 280px;
+  background: var(--social-bg);
+  border-radius: 24px;
+  padding: 25px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.game-panel > div {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Выпадающий список сложности */
+.difficulty-selector {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.difficulty-selector label {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.difficulty-selector select {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 40px;
+  padding: 12px 40px 12px 20px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23aa3bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
+  flex: 1;
+  min-width: 140px;
+  transition: all 0.3s;
+}
+
+.difficulty-selector select:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-bg);
+}
+
+.difficulty-selector select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+.difficulty-selector select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: var(--border);
+  background: var(--social-bg);
+}
+
+.difficulty-selector select option {
+  background: var(--bg);
+  color: var(--text);
+  padding: 12px;
+  font-size: 1rem;
+}
+
+/* Кнопка СТАРТ */
+.start-btn {
+  background: linear-gradient(45deg, var(--accent), #764ba2);
+  border: none;
+  border-radius: 40px;
+  padding: 14px 28px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  border: 1px solid var(--accent-border);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+  margin-bottom: 10px;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px var(--accent-bg);
+}
+
+/* Сообщение об окончании игры */
+.game-over-message {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Контейнер для кнопок Сброс и Поворот */
+.game-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  border: 1px solid var(--accent);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--accent-bg);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Мобильные стрелки (скрыты на десктопе) */
+.mobile-arrows {
+  display: none;
+}
+
+/* ========== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
+@media (max-width: 768px) {
+  /* Скрываем десктопную навигацию */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Показываем гамбургер */
+  .hamburger {
+    display: flex;
+  }
+
+  .game-container {
+    flex-direction: column;
+  }
+
+  .game-panel {
+    flex-basis: auto;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .difficulty-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .difficulty-selector label {
+    margin-bottom: 5px;
+  }
+
+  .difficulty-selector select {
+    width: 100%;
+  }
+
+  .game-controls {
+    flex-direction: column;
+  }
+
+  .control-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  .start-btn {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
+
+  /* Показываем мобильные стрелки */
+  .mobile-arrows {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-arrows button {
+    background: var(--accent-bg);
+    border: 2px solid var(--accent);
+    border-radius: 40px;
+    padding: 15px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-h);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .mobile-arrows button:active {
+    transform: scale(0.95);
+    background: var(--accent);
+    color: white;
+  }
+
+  .mobile-arrows button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 15px;
+  }
+}
+
+/* ========== СТРАНИЦА АВТОРИЗАЦИИ ========== */
+.auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg), var(--border));
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--bg);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--text);
+}
+
+.auth-tab:hover {
+  background: var(--social-bg);
+  color: var(--text-h);
+}
+
+.auth-tab.active {
+  color: var(--accent);
+  border-bottom: 3px solid var(--accent);
+  background: var(--accent-bg);
+}
+
+.auth-form-container {
+  padding: 40px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form input {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  transition: border 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.auth-form button {
+  padding: 15px;
+  background: linear-gradient(45deg, var(--accent), #764ba2);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--accent-bg);
+}
+
+/* ========== ТАБЛИЦА ЛИДЕРОВ И ПРОФИЛЬ ========== */
+.leaderboard-list, .profile-scores {
+  list-style: none;
+  padding: 0;
+}
+
+.leaderboard-list li, .profile-scores li {
+  margin: 10px 0;
+  padding: 10px;
+  background: var(--social-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
