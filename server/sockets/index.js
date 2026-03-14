@@ -6,7 +6,7 @@ module.exports = {
   init: (server) => {
     io = socketIo(server, {
       cors: {
-        origin: 'http://localhost:3000', // адрес фронтенда
+        origin: 'http://localhost:3000',//фронт
         methods: ['GET', 'POST'],
       },
     });

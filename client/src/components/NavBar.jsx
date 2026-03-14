@@ -11,7 +11,7 @@ const NavBar = () => {
 
   return (
     <>
-      {/* Десктопная навигация (видна при ширине > 768px) */}
+     
       <nav className="navbar desktop-nav">
         <div className="nav-links">
           <Link to="/leaderboard">Таблица лидеров</Link>
@@ -32,17 +32,17 @@ const NavBar = () => {
         </div>
       </nav>
 
-      {/* Гамбургер-иконка (видна только на мобильных) */}
+    
       <div className="hamburger" onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      {/* Затемнение фона при открытом меню */}
+    
       {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
 
-      {/* Боковое меню (мобильное) */}
+     
       <div className={`sidebar-menu ${menuOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={closeMenu}>✕</button>
         <div className="menu-links">

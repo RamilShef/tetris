@@ -1,6 +1,3 @@
-/* ========== ОСНОВНЫЕ СТИЛИ ========== */
-
-/* Десктопная навигация */
 .desktop-nav {
   background: var(--bg);
   backdrop-filter: blur(10px);
@@ -58,7 +55,6 @@
   color: white;
 }
 
-/* Гамбургер-иконка (скрыта на десктопе) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -80,7 +76,7 @@
   transition: all 0.3s;
 }
 
-/* Затемнение фона */
+
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -92,7 +88,7 @@
   backdrop-filter: blur(3px);
 }
 
-/* Боковое меню */
+
 .sidebar-menu {
   position: fixed;
   top: 0;
@@ -159,7 +155,7 @@
   color: white;
 }
 
-/* Основной контент */
+
 .main-content {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -178,7 +174,7 @@
   color: var(--text);
 }
 
-/* ========== ИГРОВОЙ КОНТЕЙНЕР ========== */
+
 .game-container {
   display: flex;
   gap: 40px;
@@ -206,7 +202,6 @@
   background: #0a0a0a;
 }
 
-/* ========== ПАНЕЛЬ УПРАВЛЕНИЯ ========== */
 .game-panel {
   flex: 0 0 280px;
   background: var(--social-bg);
@@ -225,7 +220,6 @@
   gap: 10px;
 }
 
-/* Выпадающий список сложности */
 .difficulty-selector {
   margin: 20px 0;
   display: flex;
@@ -283,7 +277,7 @@
   font-size: 1rem;
 }
 
-/* Кнопка СТАРТ */
+
 .start-btn {
   background: linear-gradient(45deg, var(--accent), #764ba2);
   border: none;
@@ -307,7 +301,6 @@
   box-shadow: 0 15px 30px var(--accent-bg);
 }
 
-/* Сообщение об окончании игры */
 .game-over-message {
   margin-top: 10px;
   color: var(--accent);
@@ -315,7 +308,7 @@
   text-align: center;
 }
 
-/* Контейнер для кнопок Сброс и Поворот */
+
 .game-controls {
   display: flex;
   gap: 10px;
@@ -345,31 +338,43 @@
   cursor: not-allowed;
 }
 
-/* Мобильные стрелки (скрыты на десктопе) */
+
 .mobile-arrows {
   display: none;
 }
 
-/* ========== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
 @media (max-width: 768px) {
-  /* Скрываем десктопную навигацию */
+
   .desktop-nav {
     display: none;
   }
 
-  /* Показываем гамбургер */
   .hamburger {
     display: flex;
   }
 
   .game-container {
     flex-direction: column;
+    gap: 15px;
+    height: 100%;
+  }
+
+  .game-canvas-wrapper {
+    flex: 3 1 auto;
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .game-canvas-wrapper canvas {
+    max-height: 100%;
+    width: auto;
   }
 
   .game-panel {
-    flex-basis: auto;
+    flex: 1 1 auto;
     width: 100%;
     padding: 15px;
+    box-sizing: border-box;
   }
 
   .difficulty-selector {
@@ -400,7 +405,6 @@
     font-size: 1.2rem;
   }
 
-  /* Показываем мобильные стрелки */
   .mobile-arrows {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -439,7 +443,6 @@
   }
 }
 
-/* ========== СТРАНИЦА АВТОРИЗАЦИИ ========== */
 .auth-page {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -530,7 +533,6 @@
   box-shadow: 0 10px 20px var(--accent-bg);
 }
 
-/* ========== ТАБЛИЦА ЛИДЕРОВ И ПРОФИЛЬ ========== */
 .leaderboard-list, .profile-scores {
   list-style: none;
   padding: 0;

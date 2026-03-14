@@ -103,17 +103,17 @@ const Game = () => {
 
         {gameOver && (
           <div className="game-over-message">
-            ⚠️ Игра окончена!
+             Игра окончена!
           </div>
         )}
 
-        {/* Кнопки Сброс и Поворот (видны на всех устройствах) */}
+       
         <div className="game-controls">
-          <button onClick={resetGame} className="control-btn">🔄 Сброс</button>
+          <button onClick={resetGame} className="control-btn"> Сброс</button>
           <button onClick={rotatePiece} disabled={!isPlaying} className="control-btn">↻ Поворот</button>
         </div>
 
-        {/* Мобильные кнопки для перемещения (скрыты на десктопе) */}
+      
         <div className="mobile-arrows">
           <button onClick={() => movePiece(-1, 0)} disabled={!isPlaying}>←</button>
           <button onClick={() => movePiece(1, 0)} disabled={!isPlaying}>→</button>

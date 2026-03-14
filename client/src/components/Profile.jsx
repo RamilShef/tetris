@@ -16,7 +16,7 @@ const Profile = () => {
 
   return (
     <div className="page-container">
-      <h2>👤 Личный кабинет</h2>
+      <h2>Личный кабинет</h2>
       <p>Пользователь: <strong>{user?.username}</strong></p>
       <h3>Мои последние результаты</h3>
       <ul style={{ listStyle: 'none', padding: 0 }}>

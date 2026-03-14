@@ -1,5 +1,4 @@
 import { io } from 'socket.io-client';
 
-const socket = io(); // подключается к текущему хосту благодаря прокси
-
+const socket = io();
 export default socket;

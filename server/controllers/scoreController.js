@@ -2,7 +2,7 @@ const Score = require('../models/Score');
 const User = require('../models/User');
 const { Op } = require('sequelize');
 
-// Сохранить результат игры
+
 exports.saveScore = async (req, res) => {
   const { score, lines, level } = req.body;
   const userId = req.userId;
@@ -15,14 +15,13 @@ exports.saveScore = async (req, res) => {
       level,
     });
 
-    // Получаем обновлённый топ-10 для рассылки через сокеты
+   
     const topScores = await Score.findAll({
       include: [{ model: User, attributes: ['username'] }],
       order: [['score', 'DESC']],
       limit: 10,
     });
 
-    // Отправляем событие всем подключённым клиентам (будет в socket/index.js)
     const io = req.app.get('io');
     io.emit('top_scores_updated', topScores);
 
@@ -32,7 +31,7 @@ exports.saveScore = async (req, res) => {
   }
 };
 
-// Получить топ-10 игроков
+
 exports.getTopScores = async (req, res) => {
   try {
     const topScores = await Score.findAll({
@@ -46,7 +45,6 @@ exports.getTopScores = async (req, res) => {
   }
 };
 
-// Получить историю игр текущего пользователя (для личного кабинета)
 exports.getUserScores = async (req, res) => {
   const userId = req.userId;
   try {
